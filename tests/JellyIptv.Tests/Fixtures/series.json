@@ -1,0 +1,42 @@
+[
+ {
+  "num": 1,
+  "name": "Timão e Pumba",
+  "series_id": 73,
+  "cover": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/7SeT1SqFWPquGd36rF29TqF6lAG.jpg",
+  "plot": "Conheça a dupla Timão e Pumba, de 'O Rei leão', da vida real. A dupla Timão e Pumba, simpáticos personagens do clássico da Disney “Rei leão” tem uma versão na vida real. Um filhote de suricato e um de javali transformaram-se em melhores amigos em um zoológico de Worcestershire, na Inglaterra",
+  "cast": "Ernie Sabella, Kevin Schon, Quinton Flynn, Corey Burton, Michael Gough",
+  "director": "",
+  "genre": "Família, Animação, Comédia",
+  "releaseDate": "1995-09-08",
+  "last_modified": "1793045973",
+  "rating": "7",
+  "rating_5based": 3.5,
+  "backdrop_path": [
+   "https://image.tmdb.org/t/p/w1280/zudK7kMNsrcNjgcnXblKo5suti7.jpg"
+  ],
+  "youtube_trailer": "",
+  "episode_run_time": "22",
+  "category_id": "691"
+ },
+ {
+  "num": 2,
+  "name": "3 Palavrinhas",
+  "series_id": 167,
+  "cover": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/qkVKGBpxAAHNBNIsOqUgmtedVPn.jpg",
+  "plot": "As músicas que fizeram parte do universo infantil de milhares de papais e mamães cristãos ganharam uma roupagem nova de muita qualidade e agora poderão ser cantadas também por crianças de todas as idades, especialmente pelos pequenos de 2 a 6 anos, pois, está sendo lançado, em todo o Brasil, pela Onimusic e a Oinc Filmes, o CD e DVD “3 Palavrinhas” - projeto cristão infantil criado para resgatar músicas antigas da igreja e promover a aproximação e a intimidade da criança com Deus.",
+  "cast": "",
+  "director": "",
+  "genre": "",
+  "releaseDate": "2013-10-11",
+  "last_modified": "1746484217",
+  "rating": "0",
+  "rating_5based": 0,
+  "backdrop_path": [
+   "https://image.tmdb.org/t/p/w1280/21bH3R6FZme0b6DKkqmfjKPmbnd.jpg"
+  ],
+  "youtube_trailer": "",
+  "episode_run_time": "0",
+  "category_id": "691"
+ }
+]

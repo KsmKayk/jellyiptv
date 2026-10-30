@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <title>Downloads IPTV</title>
+</head>
+<body>
+<div id="JellyIptvDownloadsPage" data-role="page" class="page type-interior pluginConfigurationPage" data-require="emby-button">
+    <div data-role="content">
+        <div class="content-primary">
+            <div style="display:flex;align-items:center;gap:1em;flex-wrap:wrap;">
+                <h2 class="sectionTitle" style="margin:0;">Downloads IPTV</h2>
+                <button is="emby-button" type="button" id="ClearFinished" class="raised button-alt"><span>Limpar concluídos</span></button>
+            </div>
+            <div id="PausedNotice" class="fieldDescription" style="display:none;margin:1em 0;color:#e5a00d;">
+                Downloads pausados: alguém está assistindo IPTV.
+            </div>
+            <div id="QueueEmpty" class="fieldDescription" style="margin:1em 0;">Nenhum download na fila.</div>
+            <div style="overflow-x:auto;">
+                <table id="QueueTable" style="width:100%;border-collapse:collapse;margin-top:1em;display:none;">
+                    <thead>
+                    <tr style="text-align:left;">
+                        <th style="padding:6px;">Título</th>
+                        <th style="padding:6px;">Estado</th>
+                        <th style="padding:6px;">Progresso</th>
+                        <th style="padding:6px;">Velocidade</th>
+                        <th style="padding:6px;"></th>
+                    </tr>
+                    </thead>
+                    <tbody id="QueueBody"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        (function () {
+            var page = document.querySelector('#JellyIptvDownloadsPage');
+            var timer = null;
+            var STATES = {
+                Pending: 'Pendente', Downloading: 'Baixando', Completed: 'Concluído',
+                Skipped: 'Ignorado (já existe)', Failed: 'Erro', Cancelled: 'Cancelado'
+            };
+
+            function esc(s) {
+                return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) {
+                    return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+                });
+            }
+
+            function bytes(n) {
+                if (!n) { return '0 B'; }
+                var units = ['B', 'KB', 'MB', 'GB', 'TB'];
+                var i = Math.min(units.length - 1, Math.floor(Math.log(n) / Math.log(1024)));
+                return (n / Math.pow(1024, i)).toFixed(i ? 1 : 0) + ' ' + units[i];
+            }
+
+            function row(item) {
+                var pct = item.TotalBytes ? Math.floor(100 * item.BytesDownloaded / item.TotalBytes) + '%' : '';
+                var progress = item.State === 'Downloading' || item.BytesDownloaded
+                    ? bytes(item.BytesDownloaded) + (item.TotalBytes ? ' / ' + bytes(item.TotalBytes) + ' (' + pct + ')' : '')
+                    : '';
+                var action = '';
+                if (item.State === 'Pending' || item.State === 'Downloading') {
+                    action = '<button is="emby-button" class="raised" data-action="cancel" data-id="' + item.Id + '"><span>Cancelar</span></button>';
+                } else if (item.State === 'Failed' || item.State === 'Cancelled') {
+                    action = '<button is="emby-button" class="raised" data-action="retry" data-id="' + item.Id + '"><span>Tentar de novo</span></button>';
+                }
+                var state = esc(STATES[item.State] || item.State)
+                    + (item.Error && item.State !== 'Completed' ? '<div class="fieldDescription">' + esc(item.Error) + '</div>' : '');
+                return '<tr style="border-top:1px solid rgba(255,255,255,.1);">'
+                    + '<td style="padding:6px;">' + esc(item.Title) + '<div class="fieldDescription">' + esc(item.DestinationPath) + '</div></td>'
+                    + '<td style="padding:6px;">' + state + '</td>'
+                    + '<td style="padding:6px;">' + progress + '</td>'
+                    + '<td style="padding:6px;">' + (item.BytesPerSecond ? bytes(item.BytesPerSecond) + '/s' : '') + '</td>'
+                    + '<td style="padding:6px;">' + action + '</td></tr>';
+            }
+
+            function refresh() {
+                ApiClient.getJSON(ApiClient.getUrl('JellyIptv/Queue')).then(function (queue) {
+                    var items = queue.Items || [];
+                    page.querySelector('#QueueEmpty').textContent = 'Nenhum download na fila.';
+                    page.querySelector('#PausedNotice').style.display = queue.Paused ? 'block' : 'none';
+                    page.querySelector('#QueueEmpty').style.display = items.length ? 'none' : 'block';
+                    page.querySelector('#QueueTable').style.display = items.length ? 'table' : 'none';
+                    page.querySelector('#QueueBody').innerHTML = items.slice().reverse().map(row).join('');
+                }, function () {
+                    var empty = page.querySelector('#QueueEmpty');
+                    empty.textContent = 'Sem permissão ou servidor indisponível.';
+                    empty.style.display = 'block';
+                    page.querySelector('#QueueTable').style.display = 'none';
+                });
+            }
+
+            function call(type, path) {
+                return ApiClient.ajax({ type: type, url: ApiClient.getUrl(path) }).then(refresh, refresh);
+            }
+
+            page.querySelector('#QueueBody').addEventListener('click', function (e) {
+                var button = e.target.closest('button[data-action]');
+                if (!button) { return; }
+                var id = button.getAttribute('data-id');
+                if (button.getAttribute('data-action') === 'cancel') {
+                    call('DELETE', 'JellyIptv/Queue/' + id);
+                } else {
+                    call('POST', 'JellyIptv/Queue/' + id + '/Retry');
+                }
+            });
+
+            page.querySelector('#ClearFinished').addEventListener('click', function () {
+                call('DELETE', 'JellyIptv/Queue/Finished');
+            });
+
+            page.addEventListener('pageshow', function () {
+                refresh();
+                clearInterval(timer);
+                timer = setInterval(refresh, 2000);
+            });
+
+            page.addEventListener('pagehide', function () {
+                clearInterval(timer);
+                timer = null;
+            });
+        })();
+    </script>
+</div>
+</body>
+</html>

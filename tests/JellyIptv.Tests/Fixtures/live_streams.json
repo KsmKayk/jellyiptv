@@ -1,0 +1,44 @@
+[
+ {
+  "num": 1,
+  "name": "Apenas um Show 24H",
+  "stream_type": "live",
+  "stream_id": 21028,
+  "stream_icon": "http://logos.example.com/Logo/apenas.png",
+  "epg_channel_id": "Apenas um Show 24H",
+  "added": "1554679297",
+  "category_id": "77",
+  "custom_sid": "",
+  "tv_archive": 0,
+  "direct_source": "",
+  "tv_archive_duration": 0
+ },
+ {
+  "num": 2,
+  "name": "As aventuras de Jackie Chan 24H",
+  "stream_type": "live",
+  "stream_id": 7202,
+  "stream_icon": "http://logos.example.com/Logo/jackie.png",
+  "epg_channel_id": "As aventuras de Jackie Chan 24H",
+  "added": "1525987230",
+  "category_id": "77",
+  "custom_sid": "",
+  "tv_archive": 0,
+  "direct_source": "",
+  "tv_archive_duration": 0
+ },
+ {
+  "num": 3,
+  "name": "Ben 10 24H",
+  "stream_type": "live",
+  "stream_id": 7598,
+  "stream_icon": "http://logos.example.com/Logo/Ben10.png",
+  "epg_channel_id": "Ben 10 24H",
+  "added": "1526235165",
+  "category_id": "77",
+  "custom_sid": "",
+  "tv_archive": 0,
+  "direct_source": "",
+  "tv_archive_duration": 0
+ }
+]

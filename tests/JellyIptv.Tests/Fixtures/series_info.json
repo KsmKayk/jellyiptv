@@ -1,0 +1,139 @@
+{
+ "seasons": [
+  {
+   "air_date": "1994-10-05",
+   "episode_count": 5,
+   "id": 42232,
+   "name": "Especiais",
+   "overview": "",
+   "season_number": 0,
+   "cover": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/1YeJ8gX241QC7AOqVFKTLxGsVFi.jpg",
+   "cover_big": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/1YeJ8gX241QC7AOqVFKTLxGsVFi.jpg"
+  },
+  {
+   "air_date": "1992-10-11",
+   "episode_count": 26,
+   "id": 42228,
+   "name": "1ª Temporada: Saga do Detetive Espiritual",
+   "overview": "Yusuke Urameshi – um jovem delinquente rude, violento e impaciente – parece só dar dor de cabeça para sua mãe, professores e vizinhança. Até que, um dia, depois de salvar um garotinho, acaba morrendo atropelado por um carro. Porém, como sua morte não era esperada pelo Mundo Espiritual, a ele é dada a chance de voltar à vida caso consiga passar pelo Teste da Ressurreição. Acompanhado de Botan, a guia do Mundo Espiritual, Yusuke irá viver aventuras sobrenaturais até poder retornar ao seu corpo.",
+   "season_number": 1,
+   "cover": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/xEsqmTtfyUNervBUfPuPO65pZMV.jpg",
+   "cover_big": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/xEsqmTtfyUNervBUfPuPO65pZMV.jpg"
+  },
+  {
+   "air_date": "1993-04-18",
+   "episode_count": 41,
+   "id": 42229,
+   "name": "2ª Temporada: Saga do Torneio das Trevas",
+   "overview": "Toguro Ototo desafia Yusuke para que se enfrentem no \"Torneio das Trevas\", competição onde participam humanos e demônios. Yusuke aceita o desafio e entra no torneio ao lado de Hiei, Kurama, Kuwabara e Genkai.",
+   "season_number": 2,
+   "cover": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/41ollBah09IDXSaflCkADnvLwPG.jpg",
+   "cover_big": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/41ollBah09IDXSaflCkADnvLwPG.jpg"
+  },
+  {
+   "air_date": "1994-02-05",
+   "episode_count": 28,
+   "id": 42230,
+   "name": "3ª Temporada: Saga do Capítulo Negro",
+   "overview": "Yusuke Urameshi recebe a missão de derrotar Shinobu Sensui, um ex-detetive espiritual que deseja abrir uma porta dimensional entre o Makai e o Ningenkai para que todas as criaturas possam invadir o mundo dos homens.",
+   "season_number": 3,
+   "cover": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/ix9KwH4IrXT4RFOYIFttXc3n9e5.jpg",
+   "cover_big": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/ix9KwH4IrXT4RFOYIFttXc3n9e5.jpg"
+  },
+  {
+   "air_date": "1994-08-20",
+   "episode_count": 18,
+   "id": 42231,
+   "name": "4ª Temporada: Saga dos Três Reis",
+   "overview": "Yusuke vai até o Makai para encontrar seu pai (um dos três reis do Makai), mas acaba se deparando com uma revolta entre os Youkais e se vê obrigado a entrar em um torneio.",
+   "season_number": 4,
+   "cover": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/prAJFPRdnIaxSHGM2rvtXhEeICD.jpg",
+   "cover_big": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/prAJFPRdnIaxSHGM2rvtXhEeICD.jpg"
+  }
+ ],
+ "info": {
+  "name": "Yu Yu Hakusho",
+  "cover": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/j6dzDPkrAsfJ6GUyyMPz38ZkpbF.jpg",
+  "plot": "O jovem Yusuke Urameshi estava tendo um dia comum: matando aula, discutindo com seus professores e arrumando briga com seu rival, Kuwabara. Mas, contrariando sua reputação de encrenqueiro, Yusuke revela ter um bom coração ao saltar na frente de um carro para salvar a vida de um menininho. E então, tudo muda. Guiado pela simpática Botan, Yusuke acaba sendo levado para o Mundo Espiritual. Lá, ele conhece o divertido Koenma, um governante de 700 anos preso no corpo de um bebê. E a grande surpresa é que ele tem um desafio para Yusuke, que pode restaurar a sua vida: chocar o ovo de um monstro espiritual. Ao mesmo tempo, o rapaz vai ter que ajudar Kuwabara, seu antigo desafeto, a lidar com uma nova gangue de inimigos. Depois, Koenma envia Yusuke ao mundo dos humanos para descobrir se alguém ainda quer a sua volta, afinal de contas...",
+  "cast": "Nozomu Sasaki, Shigeru Chiba, Megumi Ogata, Nobuyuki Hiyama, Yuri Amano",
+  "director": "Noriyuki Abe",
+  "genre": "Animação, Action & Adventure, Sci-Fi & Fantasy",
+  "releaseDate": "1992-10-10",
+  "last_modified": "1642726722",
+  "rating": "9",
+  "rating_5based": 4.5,
+  "backdrop_path": [
+   "https://image.tmdb.org/t/p/w1280/1AslNotllxScwsQ65YVH8BFaJCx.jpg"
+  ],
+  "youtube_trailer": "liiQuruWnpM",
+  "episode_run_time": "23",
+  "category_id": "691"
+ },
+ "episodes": {
+  "1": [
+   {
+    "id": "71999",
+    "episode_num": 1,
+    "title": "Yu Yu Hakusho - S01E01 - A Morte",
+    "container_extension": "mp4",
+    "info": {
+     "tmdb_id": 744799,
+     "releasedate": "1992-10-10",
+     "plot": "Yusuke Urameshi é um garoto rebelde que sempre se mete em brigas. Ao salvar uma criança, ele morre atropelado. Porém, devido à má fama, a morte de Yusuke não era prevista no Mundo Espiritual.",
+     "duration_secs": 1420,
+     "duration": "00:23:40",
+     "movie_image": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/7szIsVQu2M9AKEzY6U2cpLMzRih.jpg",
+     "bitrate": 877,
+     "rating": 7,
+     "season": "1"
+    },
+    "custom_sid": "",
+    "added": "1642725480",
+    "season": 1,
+    "direct_source": ""
+   },
+   {
+    "id": "72000",
+    "episode_num": 2,
+    "title": "Yu Yu Hakusho - S01E02 - No Mundo Espiritual: Teste da Ressurreição",
+    "container_extension": "mp4",
+    "info": {
+     "tmdb_id": 744800,
+     "releasedate": "1992-10-17",
+     "plot": "Botan e Yusuke retornam ao Mundo dos Humanos. O rapaz tem outra missão: não deixar que enterrem seu corpo. Deste modo, Yusuke precisará das ajudas de Keiko, sua “namoradinha”, e de Kuwabara, seu rival.",
+     "duration_secs": 1421,
+     "duration": "00:23:41",
+     "movie_image": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/ot6PPEP9Gldm5QGb41cXI0jiOtU.jpg",
+     "bitrate": 1069,
+     "rating": 7,
+     "season": "1"
+    },
+    "custom_sid": "",
+    "added": "1642725480",
+    "season": 1,
+    "direct_source": ""
+   },
+   {
+    "id": "72001",
+    "episode_num": 3,
+    "title": "Yu Yu Hakusho - S01E03 - A Promessa de um Homem",
+    "container_extension": "mp4",
+    "info": {
+     "tmdb_id": 744801,
+     "releasedate": "1992-10-24",
+     "plot": "Yusuke estimula seu rival, Kuwabara, a se emprenhar nos estudos para progredir na vida.",
+     "duration_secs": 1421,
+     "duration": "00:23:41",
+     "movie_image": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/fLpNxzEDN37opkNk2Xs3uptfyLx.jpg",
+     "bitrate": 822,
+     "rating": 7,
+     "season": "1"
+    },
+    "custom_sid": "",
+    "added": "1642725480",
+    "season": 1,
+    "direct_source": ""
+   }
+  ]
+ }
+}

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?><tv>
+<channel id="Syfy.br"><display-name>Syfy HD</display-name><icon src="http://logos.example.com/Logo/SYFY1.png" /></channel>
+<channel id="Trutv.br"><display-name>Canal Adult Swim SD</display-name><icon src="http://logos.example.com/Logo/adultswim.png" /></channel>
+<programme start="20261029000000 -0300" stop="20261029235900 -0300" channel="Ben 10 24H" ><title>Canal 24H - Seu Servidor Favorito.</title><desc>Esse canal passa todos os dias o mesmo conteudo.</desc></programme>
+<programme start="20261030000000 -0300" stop="20261030235900 -0300" channel="Ben 10 24H" ><title>Canal 24H - Seu Servidor Favorito.</title><desc>Esse canal passa todos os dias o mesmo conteudo.</desc></programme>
+<programme start="20261029000000 -0300" stop="20261029235900 -0300" channel="As aventuras de Jackie Chan 24H" ><title>Canal 24H - Seu Servidor Favorito.</title><desc>Esse canal passa todos os dias o mesmo conteudo.</desc></programme>
+<programme start="20261030000000 -0300" stop="20261030235900 -0300" channel="As aventuras de Jackie Chan 24H" ><title>Canal 24H - Seu Servidor Favorito.</title><desc>Esse canal passa todos os dias o mesmo conteudo.</desc></programme>
+</tv>

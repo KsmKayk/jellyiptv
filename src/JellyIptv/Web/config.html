@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <title>JellyIPTV</title>
+</head>
+<body>
+<div id="JellyIptvConfigPage" data-role="page" class="page type-interior pluginConfigurationPage" data-require="emby-input,emby-button,emby-checkbox">
+    <div data-role="content">
+        <div class="content-primary">
+            <form id="JellyIptvConfigForm">
+                <h2 class="sectionTitle">Conta Xtream</h2>
+                <div class="inputContainer">
+                    <label class="inputLabel inputLabelUnfocused" for="BaseUrl">URL do servidor</label>
+                    <input is="emby-input" type="text" id="BaseUrl" placeholder="http://servidor:8880" />
+                </div>
+                <div class="inputContainer">
+                    <label class="inputLabel inputLabelUnfocused" for="Username">Usuário</label>
+                    <input is="emby-input" type="text" id="Username" />
+                </div>
+                <div class="inputContainer">
+                    <label class="inputLabel inputLabelUnfocused" for="Password">Senha</label>
+                    <input is="emby-input" type="password" id="Password" />
+                </div>
+                <button is="emby-button" type="button" id="TestConnection" class="raised button-alt block"><span>Testar conexão</span></button>
+                <div id="TestResult" class="fieldDescription" style="margin-bottom:2em;"></div>
+
+                <h2 class="sectionTitle">Downloads</h2>
+                <div class="inputContainer">
+                    <label class="inputLabel inputLabelUnfocused" for="MoviesFolder">Pasta de filmes (dentro do container)</label>
+                    <input is="emby-input" type="text" id="MoviesFolder" />
+                </div>
+                <div class="inputContainer">
+                    <label class="inputLabel inputLabelUnfocused" for="SeriesFolder">Pasta de séries (dentro do container)</label>
+                    <input is="emby-input" type="text" id="SeriesFolder" />
+                </div>
+                <div class="inputContainer">
+                    <label class="inputLabel inputLabelUnfocused" for="MaxConcurrentDownloads">Downloads simultâneos</label>
+                    <input is="emby-input" type="number" id="MaxConcurrentDownloads" min="1" max="5" />
+                    <div class="fieldDescription">Contas IPTV costumam limitar conexões. Use 1 se a sua permite só uma.</div>
+                </div>
+                <div class="inputContainer">
+                    <label class="inputLabel inputLabelUnfocused" for="UserAgent">User-Agent</label>
+                    <input is="emby-input" type="text" id="UserAgent" />
+                </div>
+                <div class="checkboxContainer">
+                    <label><input is="emby-checkbox" type="checkbox" id="PauseWhileStreaming" /><span>Pausar downloads enquanto alguém assiste IPTV</span></label>
+                </div>
+                <div class="checkboxContainer">
+                    <label><input is="emby-checkbox" type="checkbox" id="AllowNonAdminDownloads" /><span>Permitir download para usuários não-admin</span></label>
+                </div>
+
+                <h2 class="sectionTitle">Categorias ocultas</h2>
+                <div class="fieldDescription">Marque as categorias que não devem aparecer. Salve a conta primeiro para carregar a lista.</div>
+                <div id="Categories" style="margin:1em 0 2em;"></div>
+
+                <button is="emby-button" type="submit" class="raised button-submit block"><span>Salvar</span></button>
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript">
+        (function () {
+            var pluginId = 'f16dea81-517f-4f93-9da7-cb0dd194a373';
+            var page = document.querySelector('#JellyIptvConfigPage');
+            var fields = ['BaseUrl', 'Username', 'Password', 'MoviesFolder', 'SeriesFolder', 'MaxConcurrentDownloads', 'UserAgent'];
+            var checks = ['PauseWhileStreaming', 'AllowNonAdminDownloads'];
+            var hidden = [];
+
+            function el(id) { return page.querySelector('#' + id); }
+
+            function esc(s) {
+                return String(s).replace(/[&<>"]/g, function (c) {
+                    return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+                });
+            }
+
+            function renderCategories(data) {
+                var groups = [['Filmes', data.Vod], ['Séries', data.Series], ['TV ao vivo', data.Live]];
+                el('Categories').innerHTML = groups.map(function (g) {
+                    return '<h3>' + g[0] + '</h3>' + (g[1] || []).map(function (c) {
+                        var checked = hidden.indexOf(c.Id) >= 0 ? ' checked' : '';
+                        return '<div class="checkboxContainer"><label><input is="emby-checkbox" type="checkbox" data-cat="'
+                            + esc(c.Id) + '"' + checked + ' /><span>' + esc(c.Name) + '</span></label></div>';
+                    }).join('');
+                }).join('');
+            }
+
+            function loadCategories() {
+                el('Categories').textContent = 'Carregando...';
+                ApiClient.getJSON(ApiClient.getUrl('JellyIptv/Categories')).then(renderCategories, function () {
+                    el('Categories').textContent = 'Não foi possível carregar as categorias (verifique a conta).';
+                });
+            }
+
+            page.addEventListener('pageshow', function () {
+                Dashboard.showLoadingMsg();
+                ApiClient.getPluginConfiguration(pluginId).then(function (config) {
+                    fields.forEach(function (f) { el(f).value = config[f] == null ? '' : config[f]; });
+                    checks.forEach(function (f) { el(f).checked = !!config[f]; });
+                    hidden = config.HiddenCategories || [];
+                    Dashboard.hideLoadingMsg();
+                    if (config.BaseUrl) {
+                        loadCategories();
+                    }
+                }, function () {
+                    Dashboard.hideLoadingMsg();
+                });
+            });
+
+            el('TestConnection').addEventListener('click', function () {
+                el('TestResult').textContent = 'Testando...';
+                ApiClient.ajax({
+                    type: 'POST',
+                    url: ApiClient.getUrl('JellyIptv/TestConnection'),
+                    data: JSON.stringify({ BaseUrl: el('BaseUrl').value, Username: el('Username').value, Password: el('Password').value, UserAgent: el('UserAgent').value }),
+                    contentType: 'application/json',
+                    dataType: 'json'
+                }).then(function (result) {
+                    el('TestResult').textContent = (result.Ok ? '\u2714 ' : '\u2716 ') + result.Message;
+                }, function () {
+                    el('TestResult').textContent = '\u2716 Falha ao testar a conexão.';
+                });
+            });
+
+            el('JellyIptvConfigForm').addEventListener('submit', function (e) {
+                e.preventDefault();
+                Dashboard.showLoadingMsg();
+                ApiClient.getPluginConfiguration(pluginId).then(function (config) {
+                    fields.forEach(function (f) { config[f] = el(f).value.trim(); });
+                    config.MaxConcurrentDownloads = parseInt(el('MaxConcurrentDownloads').value, 10) || 1;
+                    checks.forEach(function (f) { config[f] = el(f).checked; });
+                    var boxes = page.querySelectorAll('#Categories input[data-cat]');
+                    if (boxes.length) {
+                        config.HiddenCategories = Array.prototype.filter.call(boxes, function (b) { return b.checked; })
+                            .map(function (b) { return b.getAttribute('data-cat'); });
+                        hidden = config.HiddenCategories;
+                    }
+                    ApiClient.updatePluginConfiguration(pluginId, config).then(function (result) {
+                        Dashboard.processPluginConfigurationUpdateResult(result);
+                        loadCategories();
+                    }, function () {
+                        Dashboard.hideLoadingMsg();
+                    });
+                }, function () {
+                    Dashboard.hideLoadingMsg();
+                });
+                return false;
+            });
+        })();
+    </script>
+</div>
+</body>
+</html>

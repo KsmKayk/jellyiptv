@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{DCC0249D-7814-4A05-A72A-B8C86E13ABF6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JellyIptv", "src\JellyIptv\JellyIptv.csproj", "{2E06930B-79DB-434E-98B4-B197ADC928F1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{B8778567-33FD-41FA-BA92-FBEF4D01A089}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JellyIptv.Tests", "tests\JellyIptv.Tests\JellyIptv.Tests.csproj", "{17C846FB-6D3D-4EFD-A8BE-AAFDBC8D0787}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2E06930B-79DB-434E-98B4-B197ADC928F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E06930B-79DB-434E-98B4-B197ADC928F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E06930B-79DB-434E-98B4-B197ADC928F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E06930B-79DB-434E-98B4-B197ADC928F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17C846FB-6D3D-4EFD-A8BE-AAFDBC8D0787}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17C846FB-6D3D-4EFD-A8BE-AAFDBC8D0787}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17C846FB-6D3D-4EFD-A8BE-AAFDBC8D0787}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17C846FB-6D3D-4EFD-A8BE-AAFDBC8D0787}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2E06930B-79DB-434E-98B4-B197ADC928F1} = {DCC0249D-7814-4A05-A72A-B8C86E13ABF6}
+		{17C846FB-6D3D-4EFD-A8BE-AAFDBC8D0787} = {B8778567-33FD-41FA-BA92-FBEF4D01A089}
+	EndGlobalSection
+EndGlobal

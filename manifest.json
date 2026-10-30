@@ -1,0 +1,21 @@
+[
+  {
+    "guid": "f16dea81-517f-4f93-9da7-cb0dd194a373",
+    "name": "JellyIPTV",
+    "description": "Assista e baixe filmes, séries e TV ao vivo de uma conta Xtream Codes.",
+    "overview": "Filmes, séries e TV ao vivo de uma conta Xtream Codes.",
+    "owner": "KsmKayk",
+    "category": "Live TV",
+    "imageUrl": "https://raw.githubusercontent.com/KsmKayk/jellyiptv/main/assets/banner.png",
+    "versions": [
+      {
+        "version": "0.1.0.0",
+        "changelog": "Primeira versão: canal IPTV (filmes e séries), TV ao vivo com guia, busca integrada e downloads.",
+        "targetAbi": "10.10.7.0",
+        "sourceUrl": "https://github.com/KsmKayk/jellyiptv/releases/download/v0.1.0.0/jellyiptv_0.1.0.0.zip",
+        "checksum": "e195583dbaaabf90e54de0be0c6818c9",
+        "timestamp": "2026-10-30T14:34:30Z"
+      }
+    ]
+  }
+]

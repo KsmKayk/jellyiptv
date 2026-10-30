@@ -1,0 +1,44 @@
+[
+ {
+  "num": 1,
+  "name": "Anaconda (2025)",
+  "stream_type": "movie",
+  "stream_id": 203260,
+  "stream_icon": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/hRzpf8QELtzJnMt4SiDoFUmZ9KM.jpg",
+  "rating": "6",
+  "rating_5based": 3,
+  "added": "1767762535",
+  "category_id": "813",
+  "container_extension": "mp4",
+  "custom_sid": "",
+  "direct_source": ""
+ },
+ {
+  "num": 2,
+  "name": "Exterminio O Templo dos Ossos (2026)",
+  "stream_type": "movie",
+  "stream_id": 205119,
+  "stream_icon": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/4GLvhvocFpOn1z1DRqFeiBC7nBP.jpg",
+  "rating": "7.239",
+  "rating_5based": 3.6,
+  "added": "1769095923",
+  "category_id": "813",
+  "container_extension": "mp4",
+  "custom_sid": "",
+  "direct_source": ""
+ },
+ {
+  "num": 3,
+  "name": "Justica Artificial (2026)",
+  "stream_type": "movie",
+  "stream_id": 205228,
+  "stream_icon": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/7OR4UwZW6eTGIoNMujGAAtCnLCx.jpg",
+  "rating": "6.778",
+  "rating_5based": 3.4,
+  "added": "1769432808",
+  "category_id": "813",
+  "container_extension": "mp4",
+  "custom_sid": "",
+  "direct_source": ""
+ }
+]
